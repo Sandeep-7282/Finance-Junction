@@ -14,7 +14,7 @@ import Signup from './components/journal/Signup'
 import Navbar2 from './components/journal/Navbar';
 import Notestate from './components/journal/context/Notestate';
 const App = ()=> {
-  const pageSize = 5;
+  const pageSize = 10;
   const apiKey ='9d8ac618ce664c9e93dd1e455db0cc32'
   const [progress, setProgress] = useState(0);
   const [search, setSearch] = useState('');
@@ -50,7 +50,7 @@ const App = ()=> {
       ):(
         <NavBar search={search} onSearchChange={handleSearchChange} Mode={mode} Toggle={toggle} />
       )}
-        <LoadingBar height={3} color='#f11946' progress={progress} />
+        <LoadingBar height={3} color='#7CFC00' progress={progress} />
         <Routes>
           <Route exact path="/" element={<News  Mode={mode} Toggle={toggle} setProgress={setProgress} key="business" apiKey={apiKey}  pageSize={pageSize} word='business' />}></Route> 
           <Route exact path="/Nationalstockexchange" element={<News  Mode={mode} Toggle={toggle} setProgress={setProgress} apiKey={apiKey} key="nse"  word='nse' pageSize={pageSize}/>}></Route> 

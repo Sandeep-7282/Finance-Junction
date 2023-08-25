@@ -25,7 +25,6 @@ const News = (props)=>{
         let parsedData = await data.json()
         props.setProgress(70);
         setArticles((prevArticles) => prevArticles.concat(parsedData.articles));
-    
         setTotalResults(parsedData.totalResults)
         setLoading(false)
         props.setProgress(100);
@@ -42,7 +41,6 @@ const News = (props)=>{
         let data = await fetch(url);
         let parsedData = await data.json();
         setArticles((prevArticles) => prevArticles.concat(parsedData.articles));
-     
         setTotalResults(parsedData.totalResults)
       };
  

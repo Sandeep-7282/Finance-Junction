@@ -33,7 +33,7 @@ const Notes = ({Mode}) => {
   return (
     <>
     <div className="d-flex ">
-      <div className="bux-1 "style={{width:'40%',height:'100vh'}}>
+      <div className="bux-1 " style={{width:'40%',height:'100vh'}}>
     <Addnote Mode={Mode}/>
 <button type="button" className="btn d-none" ref={ref} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 <i className="fa-solid fa-pen-to-square mx-2 my-2" style={{color: "#231b1b"}}></i>

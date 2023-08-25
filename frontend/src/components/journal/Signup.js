@@ -18,7 +18,6 @@ const submit=async(e)=>{
 });
 const json=await response.json()
 console.log(json);
- 
 
   console.log(json.authtoken)
     localStorage.setItem('token',json.authtoken)

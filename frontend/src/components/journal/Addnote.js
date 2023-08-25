@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect,useRef } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import Notecontext from './context/Notecontext';
 const Addnote = ({Mode}) => {
     const context=useContext(Notecontext);
