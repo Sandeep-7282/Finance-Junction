@@ -8,7 +8,7 @@ const Noteitem = (props) => {
   <>
   <div className=" mx-0 ">
   <div className="card " >
-  <div className={`card-body bg-${props.Mode==='light'?'light':''}`} style={{backgroundColor:'#383838'}}>
+  <div className={`card-body `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838'}}>
     <h4 className={` card-title text-${props.Mode==='light'?'dark':'light'}`}>{note.title}</h4>
     <p className={` card-text text-${props.Mode==='light'?'dark':'light'}`}>{note.description}</p>
     <small className={`text-${props.Mode==='light'?'success':'info'}`}>{note.tag}</small>

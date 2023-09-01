@@ -3,7 +3,7 @@ import React, { useState ,useEffect} from 'react'
 import { useLocation } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import News from './components/News';
-
+import Text from './components/journal/Text'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar';
 
@@ -13,6 +13,9 @@ import Login from './components/journal/Login'
 import Signup from './components/journal/Signup'
 import Navbar2 from './components/journal/Navbar';
 import Notestate from './components/journal/context/Notestate';
+import Convertor from './components/journal/Convertor';
+import Chatbot from './components/journal/Chatbot';
+import Translator from './components/journal/Translator';
 const App = ()=> {
   const pageSize = 10;
   const apiKey ='9d8ac618ce664c9e93dd1e455db0cc32'
@@ -20,19 +23,33 @@ const App = ()=> {
   const [search, setSearch] = useState('');
   const [mode,setmode]=useState('light');
   let [isJournalRoute,setroute]=useState(false);
+  const [te,sette]=useState(false);
   let location = useLocation();
   useEffect(() => {
     setroute(
       location.pathname === '/journal' ||
       location.pathname === '/journal/about' ||
       location.pathname === '/journal/signup' ||
-      location.pathname === '/journal/login'
+      location.pathname === '/journal/login'||
+      location.pathname === '/journal/editor'||
+      location.pathname === '/journal/convertor'||
+      location.pathname === '/journal/translator'||
+      location.pathname === '/journal/chatbot'
     );
   }, [location]);
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
-
+  useEffect(()=>{
+    if(mode==='dark'){
+      document.body.style.backgroundColor='#BCCBC9';
+      setmode('light');
+     }
+      else{
+        setmode('dark');
+        document.body.style.backgroundColor='#121212';
+      }
+  },[])
   const toggle=()=>{
     if(mode==='light'){
        setmode('dark');
@@ -46,7 +63,7 @@ const App = ()=> {
     return (
      <>
          {isJournalRoute?  (
-        <Navbar2 setroute={setroute} Mode={mode} Toggle={toggle}/>
+        <Navbar2 setroute={setroute} Mode={mode} Toggle={toggle} sette={sette} te={te}/>
       ):(
         <NavBar search={search} onSearchChange={handleSearchChange} Mode={mode} Toggle={toggle} />
       )}
@@ -83,6 +100,10 @@ const App = ()=> {
          <Route exact path="/journal/about" element={<><div className="container my-5"><About Mode={mode} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/login" element={<><div className="container my-5"><Login Mode={mode} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/signup" element={<><div className="container my-5"><Signup Mode={mode} Toggle={toggle}/></div></>}></Route>
+         <Route exact path="/journal/editor"  element={<Text Mode={mode} Toggle={toggle}/>}></Route>
+         <Route exact path="/journal/convertor"  element={<Convertor Mode={mode} Toggle={toggle}/>}></Route>
+         <Route exact path="/journal/chatbot"  element={<Chatbot Mode={mode} Toggle={toggle}/>}></Route>
+         <Route exact path="/journal/translator"  element={<Translator Mode={mode} Toggle={toggle}/>}></Route>
             </Routes>
       </>
     )

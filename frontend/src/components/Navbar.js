@@ -7,7 +7,6 @@ const NavBar = ({ search, onSearchChange,Mode,Toggle}) => {
     const change=(e)=>{
         onSearchChange(e);
     }
-  
     return (
         <div>
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -67,13 +66,10 @@ const NavBar = ({ search, onSearchChange,Mode,Toggle}) => {
         <input className="form-control me-2" type="search" placeholder="Search" id="search" style={{backgroundColor:'#BCCBC9'}} value={search} onChange={change} aria-label="Search"/>
         <button className={`btn btn-outline-${Mode==='light'?'success':'info'}`}   type="submit"><Link className={`nav-link text-light`} to={`/${search}`} >Search</Link></button>
         </form>
-       
          </div>
                     <button className={`bg-dark mx-2 text-${Mode==='light'?'success':'info'}`} onClick={Toggle}><i class={`fa-solid fa-${Mode==='dark'?'sun':'moon'}`}></i></button> 
-          </div>  </nav>
-            
+          </div></nav>
         </div>
     )
-
 }
 export default NavBar
