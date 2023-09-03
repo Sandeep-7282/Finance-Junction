@@ -31,7 +31,7 @@ export default function Text(props) {
     <div className={`my-2 container text-${props.Mode==='light'?'dark':'light'}`}>
     <h1 className={`heading text-${props.Mode==='light'?'dark':'light'}`}>Enter Your Text Below</h1>
 <div className="mb-3 ">
-  <textarea className="form-control " value={textinside}   onChange={change} id="myBox" rows="5" placeholder='Enter Your Text Here' style={{backgroundColor:props.Mode==='light'?'white':'#c5c5c7'}}></textarea>
+  <textarea className="form-control " value={textinside}   onChange={change} id="myBox" rows="5" placeholder='Enter Your Text Here' style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#c5c5c7'}}></textarea>
   <button className={`btn my-2 mx-5 btn-outline-${props.Mode==='light'?'success':'info'}`} onClick={Up}>Upper Case</button>
   <button className={`btn my-2 mx-5 btn-outline-${props.Mode==='light'?'success':'info'}`}  onClick={low}>Lower Case</button>
   <button className={`btn my-2 mx-5 btn-outline-${props.Mode==='light'?'success':'info'}`}  onClick={clear}>Clear Text</button>

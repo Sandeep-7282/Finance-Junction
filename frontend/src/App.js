@@ -42,12 +42,14 @@ const App = ()=> {
   };
   useEffect(()=>{
     if(mode==='dark'){
+      
       document.body.style.backgroundColor='#BCCBC9';
       setmode('light');
      }
       else{
-        setmode('dark');
+    
         document.body.style.backgroundColor='#121212';
+        setmode('dark');
       }
   },[])
   const toggle=()=>{
