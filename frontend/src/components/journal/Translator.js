@@ -15,7 +15,7 @@ const Translator = (props) => {
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '201f50fafcmsh75f0f24e1e3bd8dp18afecjsn84ec4fedbc65',
+                    'X-RapidAPI-Key':process.env.REACT_APP_RAPID_API_KEY ,
                     'X-RapidAPI-Host': 'google-translate113.p.rapidapi.com'
                 }
             };
@@ -23,6 +23,7 @@ const Translator = (props) => {
             try {
                 const response = await fetch(url, options);
                 const result = await response.json();
+                console.log(result)
                 setlang(result);
             } catch (error) {
                 console.error(error);
@@ -37,7 +38,7 @@ const options = {
 	method: 'POST',
 	headers: {
 		'content-type': 'application/x-www-form-urlencoded',
-		'X-RapidAPI-Key': '201f50fafcmsh75f0f24e1e3bd8dp18afecjsn84ec4fedbc65',
+		'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
 		'X-RapidAPI-Host': 'google-translate105.p.rapidapi.com'
 	},
 	body: new URLSearchParams({
@@ -49,7 +50,9 @@ const options = {
 
 try {
 	const response = await fetch(url, options);
+  console.log(response)
 	const result = await response.json();
+  console.log(result)
   document.getElementById('amount').value=result.translated_text;
 } catch (error) {
 	console.error(error);
@@ -61,7 +64,7 @@ try {
             method: 'POST',
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
-                'X-RapidAPI-Key': '201f50fafcmsh75f0f24e1e3bd8dp18afecjsn84ec4fedbc65',
+                'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
                 'X-RapidAPI-Host': 'google-translate113.p.rapidapi.com'
             },
             body: new URLSearchParams({

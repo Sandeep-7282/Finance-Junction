@@ -16,9 +16,10 @@ import Notestate from './components/journal/context/Notestate';
 import Convertor from './components/journal/Convertor';
 import Chatbot from './components/journal/Chatbot';
 import Translator from './components/journal/Translator';
+
 const App = ()=> {
   const pageSize = 10;
-  const apiKey ='9d8ac618ce664c9e93dd1e455db0cc32'
+  const apiKey =process.env.REACT_APP_API_KEY_1||process.env.REACT_APP_API_KEY_2||process.env.REACT_APP_API_KEY_3;
   const [progress, setProgress] = useState(0);
   const [search, setSearch] = useState('');
   const [mode,setmode]=useState('light');

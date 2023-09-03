@@ -17,7 +17,7 @@ const submit=async(e)=>{
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '201f50fafcmsh75f0f24e1e3bd8dp18afecjsn84ec4fedbc65',
+		'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
 		'X-RapidAPI-Host': 'fast-currency-convertor.p.rapidapi.com'
 	}
 };
