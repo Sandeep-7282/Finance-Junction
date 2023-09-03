@@ -19,7 +19,7 @@ import Translator from './components/journal/Translator';
 
 const App = ()=> {
   const pageSize = 10;
-  const apiKey =process.env.REACT_APP_API_KEY_1||process.env.REACT_APP_API_KEY_2||process.env.REACT_APP_API_KEY_3;
+  const apiKey =process.env.REACT_APP_API_KEY_1;
   const [progress, setProgress] = useState(0);
   const [search, setSearch] = useState('');
   const [mode,setmode]=useState('light');
