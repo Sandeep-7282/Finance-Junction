@@ -23,6 +23,7 @@ const News = (props)=>{
         let data = await fetch(url);
         props.setProgress(30);
         let parsedData = await data.json()
+        console.log(parsedData);
         props.setProgress(70);
         setArticles((prevArticles) => prevArticles.concat(parsedData.articles));
         setTotalResults(parsedData.totalResults)
