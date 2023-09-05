@@ -4,7 +4,6 @@ import Spinner from './Spinner';
 import PropTypes from 'prop-types'
 
 import InfiniteScroll from "react-infinite-scroll-component";
-import Newsitem2 from './Newsitem2';
 import Footer from './Footer';
 
 const News = (props)=>{
@@ -15,12 +14,13 @@ const News = (props)=>{
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     } 
-
     const updateNews = async ()=> {
         props.setProgress(10);
-        const url = `https://newsapi.org/v2/everything?q=${props.word}&sortBy=publishedAt&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`; 
+        const url = `https://newsapi.org/v2/everything?q=${props.word}&sortBy=publishedAt&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`; 
+       setPage(page+1)
         setLoading(true)
         let data = await fetch(url);
+        console.log(data)
         props.setProgress(30);
         let parsedData = await data.json()
         console.log(parsedData);
@@ -30,17 +30,16 @@ const News = (props)=>{
         setLoading(false)
         props.setProgress(100);
     }
-
     useEffect(() => {
-        updateNews(); 
-    }, [])
-
-
-    const fetchMoreData = async () => {   
-        const url = `https://newsapi.org/v2/everything?q=${props.word}&sortBy=publishedAt&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
-        setPage(page+1) 
-        let data = await fetch(url);
+      updateNews(); 
+  }, [])
+    const fetchMoreData = async () => { 
+        const url = `https://newsapi.org/v2/everything?q=${props.word}&sortBy=publishedAt&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+       setPage(page+1)
+       let data = await fetch(url);
+        console.log(data)
         let parsedData = await data.json();
+        console.log(parsedData)
         setArticles((prevArticles) => prevArticles.concat(parsedData.articles));
         setTotalResults(parsedData.totalResults)
       };
@@ -60,10 +59,10 @@ const News = (props)=>{
                     loader={(articles.length) !== totalResults?<Spinner/>:<Footer/>}> 
                     <div className="container">
                     <div className="row d-flex">
-                    {articles.map((element) => {
+                    {articles.map((element,i) => {
   if (element && element.title) {
     return (
-      <div className="col-md-4" key={element.url}>
+      <div className="col-md-4" key={i}>
         <NewsItem
           title={element.title}
           description={element.description ? element.description : ""}
