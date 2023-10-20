@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
   //const host="http://localhost:4100/";
-const host="https://finance-junction-xmer.onrender.com"
+const host="https://finance-junction.onrender.com"
     let navigate=useNavigate();
         const [cred,setcred]=useState({email:"",password:""})
     const submit=async(e)=>{
@@ -15,9 +15,9 @@ const host="https://finance-junction-xmer.onrender.com"
         },
         body:JSON.stringify({email:cred.email,password:cred.password})
     });
+    console.log(response)
     const json=await response.json()
     console.log(json);
-    
       console.log(json.authtoken)
         localStorage.setItem('token',json.authtoken)
         navigate('/journal')
