@@ -7,7 +7,7 @@ const { body, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const PRIVATE_KEY = "jwttest@123";
 const Fetchuser=require('../middlewares/Fetchuser');
-const { useState } = require('react');
+
 
 router.post('/createUser', [
     body('name','Enter valid name(characters more than 2)').isLength({ min: 3 }),

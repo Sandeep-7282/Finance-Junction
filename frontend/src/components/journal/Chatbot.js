@@ -40,7 +40,7 @@ try {
     <>
     <div className='mx-5 my-3 '>
          <div className={`container text-${props.Mode==='light'?'dark':'light'}`} >
-    <h1 className={`heading text-${props.Mode==='light'?'dark':'light'}`}>Enter Your Text Below</h1>
+    <h1 className={`heading text-${props.Mode==='light'?'dark':'light'}`}>Enter Your Question Below</h1>
     </div>
           <textarea className="form-control my-2 " value={textinside} onChange={change} id="input" rows="5" placeholder='Enter Your Text Here' style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#c5c5c7',border:'2px solid grey',width:'80%'}}></textarea>
           <button className={`btn btn-outline-${props.Mode==='light'?'success':'info'}`} onClick={ask}>Ask</button>
