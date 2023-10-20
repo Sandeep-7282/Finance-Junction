@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 const Signup = (props) => {
     //const host="http://localhost:4100/";
-     const host="https://finance-junction.onrender.com"
+     const host="https://finance-junction.onrender.com/"
     let navigate=useNavigate();
     const [cred,setcred]=useState({name:"",email:"",password:"",cpassword:""})
 const submit=async(e)=>{
