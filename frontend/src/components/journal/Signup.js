@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 const Signup = (props) => {
+    //const host="http://localhost:4100/";
+const host="https://finance-junction-xmer.onrender.com"
     let navigate=useNavigate();
     const [cred,setcred]=useState({name:"",email:"",password:"",cpassword:""})
 const submit=async(e)=>{
@@ -9,7 +11,7 @@ const submit=async(e)=>{
  let cpass=document.getElementById('cpassword').value;
  if(cpass===pass){
  const {name,email,password}=cred;
- const response=await fetch("http://localhost:4100/api/auth/createUser",{
+ const response=await fetch(`${host}api/auth/createUser`,{
     method:'POST',
     headers:{
       'Content-Type':'application/json'
