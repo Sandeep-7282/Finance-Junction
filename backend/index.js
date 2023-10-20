@@ -10,8 +10,9 @@ app.use('/api/notes',require('./Routes/notes'));
 connectToMongo();
 const port = 4100;
 app.get('/', (req, res) => {
-  res.send('Hello World!');
   res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send('Hello World!');
+
 })
 
 app.listen(port, () => {
