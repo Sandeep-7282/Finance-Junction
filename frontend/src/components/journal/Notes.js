@@ -38,29 +38,28 @@ const Notes = ({Mode}) => {
 <button type="button" className="btn d-none" ref={ref} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 <i className="fa-solid fa-pen-to-square mx-2 my-2" style={{color: "#231b1b"}}></i>
 </button>
-<div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h1 className="modal-title fs-5" id="staticBackdropLabel">Update Your Notes</h1>
+<div className="modal fade" id="staticBackdrop"  data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div className="modal-dialog" >
+    <div className="modal-content" style={{backgroundColor:Mode==='light'?'#aab8b6':'#404040',border:'none'}} >
+      <div className="modal-header" style={{backgroundColor:Mode==='light'?'#5d6f6c':'#1a1a1a',border:'none'}}>
+        <h1 className={`modal-title fs-5 text-${Mode==='light'?'dark':'light'} `} id="staticBackdropLabel">Update Your Notes</h1>
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div className="modal-body">
-      
     <div className="mb-3">
-   <h4>Title</h4>
-  <input type="text" className="form-control" id="title" name="title" value={note.title} placeholder="Your Title" onChange={echange} minLength={3}/>
+   <h4 className={`text-${Mode==='light'?'dark':'light'} `}>Title</h4>
+  <input type="text" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#5c636a',border:'none'}}  id="title" name="title" value={note.title} placeholder="Your Title" onChange={echange} minLength={3}/>
 </div>
 <div className="my-2 mb-3">
-   <h3>Description</h3>
-  <textarea className="form-control my-1" id="description" value={note.description} name="description" rows="3" onChange={echange} minLength={5}></textarea>
-  <input type="text" className="form-control" id="tag" name="tag" value={note.tag} placeholder="tag" onChange={echange}/>
+   <h3 className={`text-${Mode==='light'?'dark':'light'} `}>Description</h3>
+  <textarea className={`form-control my-1 text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#5c636a',border:'none'}}   id="description" value={note.description} name="description" rows="3" onChange={echange} minLength={5}></textarea>
+  <input type="text" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#5c636a',border:'none'}}   id="tag" name="tag" value={note.tag} placeholder="tag" onChange={echange}/>
 </div>
 <p id='uerror'></p>
       </div>
-      <div className="modal-footer">
-        <button type="button" ref={refclose} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary" onClick={save}>Update</button>
+      <div className="modal-footer"  style={{backgroundColor:Mode==='light'?'#5d6f6c':'#1a1a1a',border:'none'}} >
+        <button type="button" ref={refclose} className="btn btn-secondary" style={{backgroundColor:Mode==='light'?'#1a1a1a':''}} data-bs-dismiss="modal">Close</button>
+        <button type="button" className={`btn btn-${Mode==='light'?'success':'info'}`} onClick={save}>Update</button>
       </div>
     </div>
   </div>

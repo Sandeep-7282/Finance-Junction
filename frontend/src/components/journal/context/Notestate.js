@@ -14,7 +14,7 @@ const[notes,setnotes]=useState([]);
       cache: "no-cache", 
       credentials: "same-origin", 
       headers: {
-        "auth-token":localStorage.getItem('token') ? localStorage.getItem('token') : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRiZjcwMDRkYzVhYTIwN2U2MWQ5OGYwIn0sImlhdCI6MTY5MDYyNTkxN30.XLzDOSEsnn_BJn_wrIYUU_SZEga-tmkoQnRZeauTf2o',
+        "auth-token":localStorage.getItem('token') ? localStorage.getItem('token') : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjUzM2IyZWE1NTBkZDQ1MDlkM2RlMWE0In0sImlhdCI6MTY5Nzg4Njk1NX0.AIj0sJufIYw7QZvgqIruoLSiLdt11a44VKo_ycSf0do',
         "Content-Type": "application/json"
       }
     });
