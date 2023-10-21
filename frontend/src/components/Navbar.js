@@ -59,12 +59,12 @@ const NavBar = ({ search, onSearchChange,Mode,Toggle}) => {
                             <li className="nav-item"><Link className="nav-link" to="/technology">Technology</Link></li>
                             </ul>
                             </li>
-                            <li className="nav-item"><Link className="nav-link"   to="/journal"><button className={`btn btn-outline-${Mode==='light'?'success':'info'}`} >Journal</button></Link></li>
+                            <li className="nav-item"><Link className="nav-link"   to="/journal"><button className={`btn btn-${Mode==='light'?'success':'info'}`} >Journal</button></Link></li>
 
                         </ul>
                         <form className="d-flex " role="search" onSubmit={submit}>
         <input className="form-control me-2" type="search" placeholder="Search" id="search" style={{backgroundColor:'#BCCBC9'}} value={search} onChange={change} aria-label="Search"/>
-        <button className={`btn btn-outline-${Mode==='light'?'success':'info'}`}   type="submit"><Link className={`nav-link text-light`} to={`/${search}`} >Search</Link></button>
+        <button className={`btn btn-${Mode==='light'?'success':'info'}`}   type="submit"><Link className={`nav-link text-light`} to={`/${search}`} >Search</Link></button>
         </form>
          </div>
                     <button className={`bg-dark mx-2 text-${Mode==='light'?'success':'info'}`} onClick={Toggle}><i class={`fa-solid fa-${Mode==='dark'?'sun':'moon'}`}></i></button> 

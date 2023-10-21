@@ -11,6 +11,10 @@ export default function Navbar({setroute,Mode,Toggle,sette,te}) {
         localStorage.clear();
         navigate('/journal/login')
       }
+      const googleauth=()=>{
+        window.open(`http://localhost:4100/auth/google/callback`,
+        "_self")
+      }
     const func=()=>{
       setroute(false);
     }
@@ -37,15 +41,16 @@ export default function Navbar({setroute,Mode,Toggle,sette,te}) {
           <Link className={`nav-link ${location.pathname==='/journal/about'?"active":""} `} to="/journal/about">About</Link>
         </li>
       </ul>
-      <Link className='nav-link' to="/journal/translator"><button className={`btn btn-outline-${Mode==='light'?'success':'info'}`}>Translator</button></Link>
-      <Link className='nav-link' to="/journal/convertor"><button className={`btn btn-outline-${Mode==='light'?'success':'info'}`}>C-Convertor</button></Link>
-      <Link className='nav-link' to="/journal/chatbot"><button className={`btn btn-outline-${Mode==='light'?'success':'info'}`}>Chatbot</button></Link>
+      <Link className='nav-link' to="/journal/translator"><button className={`btn btn-${Mode==='light'?'success':'info'}`}>Translator</button></Link>
+      <Link className='nav-link' to="/journal/convertor"><button className={`btn btn-${Mode==='light'?'success':'info'}`}>C-Convertor</button></Link>
+      <Link className='nav-link' to="/journal/chatbot"><button className={`btn btn-${Mode==='light'?'success':'info'}`}>Chatbot</button></Link>
       {!localStorage.getItem('token')? (<>
-      <Link className={`btn mx-3 btn-outline-${Mode==='light'?'success':'info'}`}    to="/journal/login" role="button">Login</Link>
-      <Link className={`btn mx-3 btn-outline-${Mode==='light'?'success':'info'}`}    to="/journal/signup" role="button">Signup</Link></>):
-      <>{!te?<Link className='nav-link' to="/journal/editor"><button onClick={editor1} className={`btn btn-outline-${Mode==='light'?'success':'info'}`}>Edit Text</button></Link>:<Link className="nav-link" to="/journal" ><button onClick={funct1} className={`btn btn-outline-${Mode==='light'?'success':'info'}`}>Journal</button></Link>}
-      <button className={`btn btn-outline-${Mode==='light'?'success':'info'}`} onClick={logout}>Logout</button></>}
-      <Link className='nav-link' to="/" onClick={func} ><button className={`btn btn-outline-${Mode==='light'?'success':'info'}`}>News</button></Link>
+      <Link className={`btn mx-3 btn-${Mode==='light'?'success':'info'}`}    to="/journal/login" role="button">Login</Link>
+      <Link className={`btn mx-3 btn-${Mode==='light'?'success':'info'}`}    to="/journal/signup" role="button">Signup</Link></>):
+      <>{!te?<Link className='nav-link' to="/journal/editor"><button onClick={editor1} className={`btn btn-${Mode==='light'?'success':'info'}`}>Edit Text</button></Link>:<Link className="nav-link" to="/journal" ><button onClick={funct1} className={`btn btn-${Mode==='light'?'success':'info'}`}>Journal</button></Link>}
+      <button className={`btn btn-${Mode==='light'?'success':'info'}`} onClick={logout}>Logout</button></>}
+      <Link className='nav-link' to="/" onClick={func} ><button className={`btn btn-${Mode==='light'?'success':'info'}`}>News</button></Link>
+
       <button className={`bg-dark mx-2 text-${Mode==='light'?'success':'info'}`} onClick={Toggle}><i class={`fa-solid fa-${Mode==='dark'?'sun':'moon'}`}></i></button>
     </div>
   </div>

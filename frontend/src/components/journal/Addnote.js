@@ -35,7 +35,7 @@ const Addnote = ({Mode}) => {
   <input type="text" className={`form-control my-3 text-${Mode==='light'?'dark':'light'}`}   style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',width:'50%'}} id="tag" name="tag" placeholder="tag" onChange={change}/>
 </div>
 <div className="d-flex flex-row align-items-center">
-<button type="button"  className={`btn mx-3 my-1 btn-outline-${Mode==='light'?'success':'info'}`}  onClick={addnote}>Save</button>
+<button type="button"  className={`btn mx-3 my-1 btn-${Mode==='light'?'success':'info'}`}  onClick={addnote}>Save</button>
 <p id="error" className={`text-${Mode==='light'?'danger':'danger'}`}></p>
 </div>
 </div>

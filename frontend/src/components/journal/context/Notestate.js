@@ -22,7 +22,6 @@ const[notes,setnotes]=useState([]);
       setnotes(json);
       console.log(json)
    }
-     
      const Addnote=async(title,description,tag)=>{
       const response = await fetch(`${host}api/notes/addnote`, {
         method: "POST", 

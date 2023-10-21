@@ -94,10 +94,10 @@ try {
     <input type="text" readOnly className={`form-control text-${props.Mode==='light'?'dark':'light'}`} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}} id="lan" name="lan" value={cred.lan} onChange={echange}/>
   </div>
   <div className="min-con d-flex align-items-center gap-5">
-  <button className={`btn btn-outline-${props.Mode==='light'?'success':'info'}`} onClick={unknowntrans}>Translate</button>
+  <button className={`btn btn-${props.Mode==='light'?'success':'info'}`} onClick={unknowntrans}>Translate</button>
   <p className={`text-${props.Mode==='light'?'success':'info'}`}>Translate Text of Known Language?
 </p>
-<button className={`btn btn-outline-${props.Mode==='light'?'success':'info'}`} onClick={()=>{settrans(true);}}>Click Here</button>
+<button className={`btn btn-${props.Mode==='light'?'success':'info'}`} onClick={()=>{settrans(true);}}>Click Here</button>
   </div></>):(<><div className="mb-3 my-5" style={{width:'80%'}}>
     <div className="test-1 d-flex align-items-center gap-2">
     <p className={`text-${props.Mode==='light'?'dark':'light'} my-2`}>From</p>
@@ -123,9 +123,9 @@ try {
     <textarea type="text" readOnly className={`form-control my-2 text-${props.Mode==='light'?'dark':'light'}`} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}} id="amount" name="amount" value={cred.amount} onChange={echange}/>
   </div>
   <div className="min-con d-flex align-items-center gap-5">
-  <button className={`btn btn-outline-${props.Mode==='light'?'success':'info'}`} onClick={knowntrans}>Translate</button>
+  <button className={`btn btn-${props.Mode==='light'?'success':'info'}`} onClick={knowntrans}>Translate</button>
   <p className={`text-${props.Mode==='light'?'success':'info'} my-2`}>Translate Text of Unknown Language?</p>
-<button className={`btn btn-outline-${props.Mode==='light'?'success':'info'}`} onClick={()=>{settrans(false);}}>Click Here</button>
+<button className={`btn btn-${props.Mode==='light'?'success':'info'}`} onClick={()=>{settrans(false);}}>Click Here</button>
   </div></>)}
     </div>
   )

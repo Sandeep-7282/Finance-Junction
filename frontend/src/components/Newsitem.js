@@ -19,7 +19,7 @@ const NewsItem = (props)=> {
                         <h5 className={`card-title text-${props.Mode==='light'?'dark':'light'}`}>{title}</h5>
                         <p className={`card-title text-${props.Mode==='light'?'dark':'light'}`}>{description}</p>
                         <p className={`card-title text-${props.Mode==='light'?'dark':'light'}`}><small className={`text-muted text-${props.Mode==='light'?'dark':'light'}`}>By {!author ? "Unknown" : author} on  {new Date(date).toGMTString()}</small></p>
-                        <a rel="noreferrer" href={newsUrl} target="_blank" className={`btn btn-sm btn-outline-${props.Mode==='light'?'success':'info'}`} >Read More</a>
+                        <a rel="noreferrer" href={newsUrl} target="_blank" className={`btn btn-sm btn-${props.Mode==='light'?'success':'info'}`} >Read More</a>
                     </div>
                 </div>
             </div>

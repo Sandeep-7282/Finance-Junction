@@ -62,7 +62,7 @@ const echange=(e)=>{
     <input type="text" readOnly className={`form-control text-${props.Mode==='light'?'dark':'light'}`} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}} id="result" name="result" value={cred.result} onChange={echange}/>
   </div>
   <div className="loadan">
-  <button className={`btn btn-outline-${props.Mode==='light'?'success':'info'}`} type='submit'>Convert</button>
+  <button className={`btn btn-${props.Mode==='light'?'success':'info'}`} type='submit'>Convert</button>
   {load?<Spinner/>:''} 
   </div>
 </form>
