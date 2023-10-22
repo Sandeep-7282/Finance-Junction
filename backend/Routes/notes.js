@@ -10,11 +10,10 @@ const { body, validationResult } = require('express-validator');
       res.status(200).send(notes);
     }
     catch(error){
-     console.log(error.message)
-     res.status(500).send({error:'Some error occured'})
+    
+     res.status(500).send({error:error.message})
     }
  })
-
  router.post('/addnote',Fetchuser,[
    body('title','Enter valid title(characters more than 2)').isLength({ min: 3 }),
    body('description','description length must be greater than 4').isLength({ min: 5 }),
@@ -31,8 +30,7 @@ const { body, validationResult } = require('express-validator');
  const savednotes=await notes.save();
   res.status(200).send(savednotes);}
   catch(error){
-   console.log(error.message)
-   res.status(500).send({error:'Some error occured'})
+   res.status(500).send({error:error.message})
   }
  })
 
@@ -61,8 +59,8 @@ if(tag){
    note=await Note.findByIdAndUpdate(req.params.id,{$set:newnote},{new:true});
    res.status(200).send(note);}
    catch(error){
-      console.log(error.message)
-      res.status(500).send({error:'Some error occured'})
+      
+      res.status(500).send({error:error.message})
      }
 })
 
@@ -78,8 +76,8 @@ router.delete('/delete/:id',Fetchuser,async(req,res)=>{
    note=await Note.findByIdAndDelete(req.params.id);
    res.status(200).send({success:`Note with id ${req.params.id}has successfully deleted`});}
    catch(error){
-      console.log(error.message)
-      res.status(500).send({error:'Some error occured'})
+  
+      res.status(500).send({error:error.message})
      }
 })
  module.exports=router;

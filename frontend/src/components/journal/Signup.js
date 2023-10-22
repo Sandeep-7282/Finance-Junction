@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from "jwt-decode"
 const Signup = (props) => {
-    //const host="http://localhost:4100/";
-    const host="https://finance-junction.onrender.com/"
+    const host="http://localhost:4100/";
+    //const host="https://finance-junction.onrender.com/"
     const [cred,setcred]=useState({name:"",email:"",password:"",cpassword:""})
     const [ggluser,setUser]=useState({name:"",email:"",password:""})
     
@@ -73,11 +73,9 @@ else{
    alert('password and confirm password are mismatched')
 }
 }
-
 const echange=(e)=>{
     setcred({...cred,[e.target.name]:e.target.value})
   }
- 
   return (
     <div className='container' style={{width:'70%'}}>
        <form onSubmit={submit}>

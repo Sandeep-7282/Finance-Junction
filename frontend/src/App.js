@@ -16,6 +16,7 @@ import Notestate from './components/journal/context/Notestate';
 import Convertor from './components/journal/Convertor';
 import Chatbot from './components/journal/Chatbot';
 import Translator from './components/journal/Translator';
+import Verify_otp from './components/journal/Verify_otp';
 
 const App = ()=> {
   const pageSize = 5;
@@ -32,6 +33,7 @@ const App = ()=> {
       location.pathname === '/journal/about' ||
       location.pathname === '/journal/signup' ||
       location.pathname === '/journal/login'||
+      location.pathname === '/journal/verification'||
       location.pathname === '/journal/editor'||
       location.pathname === '/journal/convertor'||
       location.pathname === '/journal/translator'||
@@ -102,6 +104,7 @@ const App = ()=> {
           <Route exact path="/journal" element={<><Notestate><Home Mode={mode}/></Notestate></>}></Route>
          <Route exact path="/journal/about" element={<><div className="container my-5"><About Mode={mode} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/login" element={<><div className="container my-5"><Login Mode={mode} Toggle={toggle}/></div></>}></Route>
+         <Route exact path="/journal/verification" element={<><div className="container my-5"><Verify_otp Mode={mode} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/signup" element={<><div className="container my-5"><Signup Mode={mode} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/editor"  element={<Text Mode={mode} Toggle={toggle}/>}></Route>
          <Route exact path="/journal/convertor"  element={<Convertor Mode={mode} Toggle={toggle}/>}></Route>

@@ -12,8 +12,10 @@ connectToMongo();
 const port = 4100;
 app.get('/', (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials","true");
-  res.send('Hello World!');
-
+  res.send({Message:"Hello Welcome To My Website",
+           Website_name:"Finance-Junction",
+           Features:"Registration, OTP Verification, Journal Creation, Signin With Google etc."
+});
 })
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)

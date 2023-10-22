@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 const Login = (props) => {
-  //const host="http://localhost:4100/";
-  const host="https://finance-junction.onrender.com/"
+  const host="http://localhost:4100/";
+  //const host="https://finance-junction.onrender.com/"
     let navigate=useNavigate();
         const [cred,setcred]=useState({email:"",password:""})
         const [ggluser,setUser]=useState({name:"",email:"",password:""})
@@ -43,7 +43,25 @@ const Login = (props) => {
            )
          },[])
 
-    const submit=async(e)=>{
+         const submit=async (e)=>{
+          e.preventDefault();
+          const response=await fetch(`${host}api/auth/login`,{
+             method:'POST',
+             headers:{
+               'Content-Type':'application/json'
+             },
+             body:JSON.stringify({email:cred.email,password:cred.password})
+         });
+         console.log(response)
+         const json=await response.json()
+         if(response.ok){
+             navigate('/journal/verification')}
+         if(!response.ok){
+           localStorage.removeItem('token');
+             alert(json.error);  
+         }
+         }
+    /*const submit1=async(e)=>{
      e.preventDefault();
      const response=await fetch(`${host}api/auth/login`,{
         method:'POST',
@@ -58,13 +76,12 @@ const Login = (props) => {
       console.log(json.authtoken)
         localStorage.setItem('token',json.authtoken)
         navigate('/journal')
-    
     if(!response.ok){
       localStorage.removeItem('token');
         alert(json.error);
         navigate('/journal/login')
     }
-}
+}*/
     const echange=(e)=>{
         setcred({...cred,[e.target.name]:e.target.value})
       }

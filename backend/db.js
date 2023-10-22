@@ -3,7 +3,6 @@ require('dotenv').config();
 
 //const mongoURI = "mongodb://127.0.0.1:27017/notebook";
 const URI = process.env.MONGO_CLOUD_URL;
-
 const connectToMongo = () => {
     mongoose.connect(URI, {
         useNewUrlParser: true,
@@ -17,5 +16,4 @@ const connectToMongo = () => {
         console.error(err);
     });
 }
-
 module.exports = connectToMongo;

@@ -17,10 +17,7 @@ const Fetchuser = (req, res, next) => {
     if (error.name === 'TokenExpiredError') {
       return res.status(401).json({ error: "Token expired" });
     }
-
-
     return res.status(500).json({ error: error.message });
   }
 };
-
 module.exports = Fetchuser;

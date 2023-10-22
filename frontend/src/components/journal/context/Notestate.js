@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 
 const Notestate=(props)=> {
 const[notes,setnotes]=useState([]);
-    //const host="http://localhost:4100/";
-    const host="https://finance-junction.onrender.com/"
+    const host="http://localhost:4100/";
+    //const host="https://finance-junction.onrender.com/"
 
    const getnotes =async()=>{
     const response = await fetch(`${host}api/notes/fetchallnotes`, {
