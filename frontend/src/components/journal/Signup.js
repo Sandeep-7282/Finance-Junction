@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect,useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Notecontext from './context/Notecontext';
 import jwt_decode from "jwt-decode"
-const Signup = (props) => {
-    const host="http://localhost:4100/";
-    //const host="https://finance-junction.onrender.com/"
+const Signup = ({Mode,host}) => {
     const [cred,setcred]=useState({name:"",email:"",password:"",cpassword:""})
     const [ggluser,setUser]=useState({name:"",email:"",password:""})
     
@@ -80,22 +79,22 @@ const echange=(e)=>{
     <div className='container' style={{width:'70%'}}>
        <form onSubmit={submit}>
   <div className="mb-3">
-    <label htmlFor="name" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Name</label>
-    <input type="text" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838'}} id="name" name="name" value={cred.name} minLength={3} onChange={echange}aria-describedby="emailHelp"/>
+    <label htmlFor="name" className={`form-label text-${Mode==='light'?'dark':'light'}`}>Name</label>
+    <input type="text" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="name" name="name" value={cred.name} minLength={3} onChange={echange}aria-describedby="emailHelp"/>
   </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputEmail1" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Email address</label>
-    <input type="email" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} id="exampleInputEmail1"name="email" style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838'}}  value={cred.email} onChange={echange} aria-describedby="emailHelp"/>
+    <label htmlFor="exampleInputEmail1" className={`form-label text-${Mode==='light'?'dark':'light'}`}>Email address</label>
+    <input type="email" className={`form-control text-${Mode==='light'?'dark':'light'} `} id="exampleInputEmail1"name="email" style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',border:'none'}}  value={cred.email} onChange={echange} aria-describedby="emailHelp"/>
   </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Password</label>
-    <input type="password" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838'}} id="password" name="password" value={cred.password} minLength={4} onChange={echange}/>
+    <label htmlFor="exampleInputPassword1" className={`form-label text-${Mode==='light'?'dark':'light'}`}>Password</label>
+    <input type="password" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="password" name="password" value={cred.password} minLength={4} onChange={echange}/>
   </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>ConfirmPassword</label>
-    <input type="password" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838'}} id="cpassword" name="cpassword" value={cred.cpassword} onChange={echange}/>
+    <label htmlFor="exampleInputPassword1" className={`form-label text-${Mode==='light'?'dark':'light'}`}>ConfirmPassword</label>
+    <input type="password" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="cpassword" name="cpassword" value={cred.cpassword} onChange={echange}/>
   </div>
-  <button className={`btn btn-${props.Mode==='light'?'success':'info'}`} type='submit'>Sign Up</button>
+  <button className={`btn btn-${Mode==='light'?'success':'info'}`} type='submit'>Sign Up</button>
 </form>
 <button id='Signin-btn' className='my-3'></button>
     </div>

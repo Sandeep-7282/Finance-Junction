@@ -9,7 +9,7 @@ const Noteitem = (props) => {
   return (
   <>
   <div className=" mx-0">
-  <div className="card" style={{border:'none'}}>
+  <div className="card" style={{maxWidth:'30vw',minHeight:'20vh',border:'none'}}>
   <div className={`card-body`} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838',boxShadow:props.Mode==='dark'?'3px 3px 3px rgba(255, 255, 255,0.8)':'3px 3px 3px rgba(0, 0, 0,0.7)',borderRadius:'5px'}}>
     <h4 className={` card-title`} style={{color:props.Mode==='dark'?'#088395':'#025933'}}>{note.title}</h4>
     <p className={` card-text text-${props.Mode==='light'?'dark':'light'}`}>{note.description}</p>

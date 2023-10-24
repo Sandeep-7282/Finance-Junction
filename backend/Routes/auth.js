@@ -107,6 +107,101 @@ transporter.sendMail(mailOptions, (error) => {
         res.status(500).send({error:err.message})
     }
 })
+router.post('/forgotpassword',async (req,res)=>{
+  
+         try{
+          otpmail=req.body.email;
+          let user=await User.findOne({email:req.body.email});
+          if(!user){
+             return res.status(400).send({error:'Please Enter Valid Mail-Id'});
+          }
+      //otp generation
+      const otp = generateOTP();
+      otpMap.set(req.body.email, otp);
+      const mailOptions = {
+        from: process.env.EMAIL,
+        to: req.body.email,
+        subject: 'OTP To Reset Your Password',
+        text: `Your OTP is: ${otp}`,
+      };
+      transporter.sendMail(mailOptions, (error) => {
+        let faildata={
+          message:'Error sending OTP',
+          status:'fail',
+          statuscode:'401'
+        }
+        if (error) {
+          return res.json(faildata);
+        }
+        let data={
+          message:'OTP sent to your email',
+          status:'success',
+          statuscode:'200'
+        }
+        return res.send(data);
+      });
+         }
+         catch(err){
+          res.status(500).send({error:err.message})
+         }
+})
+router.post('/changepassword',async (req,res)=>{
+  console.log(req.body.email)
+  try{
+   let user=await User.findOne({email:req.body.email});
+   if(!user){
+      return res.status(400).send({message:'No User Found'});
+   }
+   console.log(user.password)
+   console.log(req.body.password)
+   const saltRounds = 10;
+   const salt=await bcrypt.genSalt(saltRounds);
+   const securepassword=await bcrypt.hash(req.body.password,salt);
+   console.log(securepassword)
+    user.password=securepassword;
+    console.log(user.password)
+    await user.save();
+    console.log("saved")
+   res.status(200).send({message:"password changed successfully"})
+  }
+  catch(err){
+  return  res.status(500).send({message:err.message})
+  }
+})
+
+
+router.post('/change-pass-verification', async (req, res) => {
+  try {
+    const {otp } = req.body;
+    const storedOTP = otpMap.get(req.body.email);
+    let faildata={
+      message:'Invalid OTP',
+      data:{
+        error:'OTP Verification Failed'
+      },
+      status:'fail',
+      statuscode:'401'
+    }
+    if ( storedOTP === parseInt(otp)) {
+      return res.status(200).send({message:"success"});
+    }
+    
+   else{
+      return res.status(400).send({message:"Invalid OTP"});
+   }
+  }
+ catch (error) {
+    let faildata={
+      message:'Internal Server Error',
+      data:{
+        error:error.name
+      },
+      status:'fail',
+      statuscode:'500'
+    }
+    return res.json(faildata);
+  }
+});
 router.post('/verify-otp', async (req, res) => {
     try {
       const {otp } = req.body;

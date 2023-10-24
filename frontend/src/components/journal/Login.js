@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-
-const Login = (props) => {
-  const host="http://localhost:4100/";
-  //const host="https://finance-junction.onrender.com/"
+import { Link } from "react-router-dom";
+const Login = ({Mode,host}) => {
     let navigate=useNavigate();
         const [cred,setcred]=useState({email:"",password:""})
         const [ggluser,setUser]=useState({name:"",email:"",password:""})
@@ -61,6 +59,7 @@ const Login = (props) => {
              alert(json.error);  
          }
          }
+      
     /*const submit1=async(e)=>{
      e.preventDefault();
      const response=await fetch(`${host}api/auth/login`,{
@@ -89,14 +88,17 @@ const Login = (props) => {
     <div className='container my-5' style={{width:'60%'}}>
       <form onSubmit={submit}>
   <div className="mb-3">
-    <label htmlFor="exampleInputEmail1" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Email address</label>
-    <input type="email" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}}   name="email" onChange={echange}value={cred.email} id="exampleInputEmail1" aria-describedby="emailHelp"/>
+    <label htmlFor="exampleInputEmail1" className={`form-label text-${Mode==='light'?'dark':'light'}`}>Email address</label>
+    <input type="email" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',border:'none'}}   name="email" onChange={echange}value={cred.email} id="exampleInputEmail1" aria-describedby="emailHelp"/>
   </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Password</label>
-    <input type="password" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}}  name="password" onChange={echange} value={cred.password} id="exampleInputPassword1"/>
+    <label htmlFor="exampleInputPassword1" className={`form-label text-${Mode==='light'?'dark':'light'}`}>Password</label>
+    <input type="password" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',border:'none'}}  name="password" onChange={echange} value={cred.password} id="exampleInputPassword1"/>
   </div>
- <button className={`btn my-2 btn-${props.Mode==='light'?'success':'info'}`} type='submit'>Login</button>
+  <div className='login'>
+ <button className={`btn my-2 btn-${Mode==='light'?'success':'info'}`} type='submit'>Login</button>
+  <Link to="/journal/forgotpassword" >Forgot Password?</Link>
+ </div>
 </form>
 <button id='Signin-btn' className='my-2'></button>
     </div>

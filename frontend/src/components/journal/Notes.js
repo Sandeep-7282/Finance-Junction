@@ -48,12 +48,12 @@ const Notes = ({Mode}) => {
       <div className="modal-body">
     <div className="mb-3">
    <h4 className={`text-${Mode==='light'?'dark':'light'} `}>Title</h4>
-  <input type="text" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#5c636a',border:'none'}}  id="title" name="title" value={note.title} placeholder="Your Title" onChange={echange} minLength={3}/>
+  <input type="text" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#383838',border:'none'}}  id="title" name="title" value={note.title} placeholder="Your Title" onChange={echange} minLength={3}/>
 </div>
 <div className="my-2 mb-3">
    <h3 className={`text-${Mode==='light'?'dark':'light'} `}>Description</h3>
-  <textarea className={`form-control my-1 text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#5c636a',border:'none'}}   id="description" value={note.description} name="description" rows="3" onChange={echange} minLength={5}></textarea>
-  <input type="text" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#5c636a',border:'none'}}   id="tag" name="tag" value={note.tag} placeholder="tag" onChange={echange}/>
+  <textarea className={`form-control my-1 text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#383838',border:'none'}}   id="description" value={note.description} name="description" rows="3" onChange={echange} minLength={5}></textarea>
+  <input type="text" className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#748b88':'#383838',border:'none'}}   id="tag" name="tag" value={note.tag} placeholder="tag" onChange={echange}/>
 </div>
 <p id='uerror'></p>
       </div>

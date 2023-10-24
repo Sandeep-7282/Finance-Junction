@@ -6,7 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -40,7 +39,14 @@ code {
 .resend {
   font-size: 12px;
 }
-
+.login{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login a{
+  text-decoration: none;
+}
 .footer {
   position: absolute;
   bottom: 10px;
@@ -54,4 +60,132 @@ code {
 .footer a {
   color: black;
   text-decoration: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "segoe ui", verdana, helvetica, arial, sans-serif;
+  font-size: 16px;
+  transition: all 500ms ease; }
+
+.row1 {
+
+  background-color: rgba(17, 53, 82, 0.6);
+  color: #fff;
+  text-align: center;
+  padding: 2em 2em 0.5em;
+  width: 90%;
+  margin: 2em	auto;
+  border-radius: 5px; }
+  .row1 h1 {
+    font-size: 2.5em; }
+  .row1 .form-group {
+    margin: 0.5em 0; }
+    .row1 .form-group label {
+      display: block;
+      color: #fff;
+      text-align: left;
+      font-weight: 600; }
+    .row1 .form-group input, .row1 .form-group button {
+      display: block;
+      padding: 0.5em 0;
+      width: 100%;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      background-color: inherit;
+      border: none;
+      border-bottom: 1px solid #555;
+      color: #eee; }
+      .row1 .form-group input:focus, .row1 .form-group button:focus {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 1em 0.5em; animation: pulse 1s infinite ease;}
+    .row1 .form-group button {
+      border: 1px solid #fff;
+      border-radius: 5px;
+      outline: none;
+      -moz-user-select: none;
+      user-select: none;
+      color: #ffffff;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 2em;
+      padding: 1em; }
+      .row1 .form-group button:hover, .row1 .form-group button:focus {
+        background-color: #fff;
+      color: #444; }
+      .row1 .form-group button.is-loading::after {
+        animation: spinner 500ms infinite linear;
+        content: "";
+        position: absolute;
+        margin-left: 2em;
+        border: 2px solid #000;
+        border-radius: 100%;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        height: 1em;
+        width: 4%; }
+        #user_email{
+           padding: 10px 20px;
+        }
+  .row1 .footer h5 {
+    margin-top: 1em; }
+  .row1 .footer p {
+    margin-top: 2em; }
+    .row1 .footer p .symbols {
+      color: #444; }
+  .row1 .footer a {
+    color: inherit;
+    text-decoration: none; }
+
+.information-text {
+  color: #ddd; }
+
+@media screen and (max-width: 320px) {
+  .row1 {
+    padding-left: 1em;
+    padding-right: 1em; }
+    .row1 h1 {
+      font-size: 1.5em !important; } }
+@media screen and (min-width: 900px) {
+  .row1 {
+    width: 50%; } }
+
+    /*change password*/
+  .login-form1{
+      display: flex;
+   justify-content: center;
+   align-items: center; 
+   
+    }
+.form1{
+	padding-top: 10px;
+	font-size: 13px;
+	margin-top: 30px;
+
+}
+
+.card-title{ font-weight:300; }
+
+.btn{
+	font-size: 13px;
+}
+
+.login-form{ 
+	width:320px;
+	margin:20px;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
+
+span{
+	font-size:14px;
+}
+.submit-btn{
+	margin-top:20px;
 }

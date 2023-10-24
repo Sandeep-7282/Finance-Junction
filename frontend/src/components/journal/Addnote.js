@@ -27,12 +27,12 @@ const Addnote = ({Mode}) => {
      <div div className='mx-5 my-5' style={{width:'40vw'}}>
     <div className="mb-3">
    <h2 className={`text-${Mode==='light'?'dark':'info'}`}style={{fontSize:'2.5vw'}}>Title</h2>
-  <input type="text " className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838'}} id="title" name="title" placeholder="Your Title" onChange={change} minLength={3}/>
+  <input type="text " className={`form-control text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="title" name="title" placeholder="Your Title" onChange={change} minLength={3}/>
 </div>
 <div className="my-2 mb-3">
    <h2 className={` text-${Mode==='light'?'dark':'info'}`}style={{fontSize:'2.5vw'}}>Description</h2>
-  <textarea className={`form-control my-1 text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838'}} id="description" name="description" rows="3" onChange={change} minLength={5}></textarea>
-  <input type="text" className={`form-control my-3 text-${Mode==='light'?'dark':'light'}`}   style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',width:'50%'}} id="tag" name="tag" placeholder="tag" onChange={change}/>
+  <textarea className={`form-control my-1 text-${Mode==='light'?'dark':'light'} `} style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="description" name="description" rows="3" onChange={change} minLength={5}></textarea>
+  <input type="text" className={`form-control my-3 text-${Mode==='light'?'dark':'light'}`}   style={{backgroundColor:Mode==='light'?'#aab8b6':'#383838',width:'40vw',border:'none'}} id="tag" name="tag" placeholder="tag" onChange={change}/>
 </div>
 <div className="d-flex flex-row align-items-center">
 <button type="button"  className={`btn mx-3 my-1 btn-${Mode==='light'?'success':'info'}`}  onClick={addnote}>Save</button>

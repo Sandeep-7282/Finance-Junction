@@ -51,7 +51,7 @@ export default function Navbar({setroute,Mode,Toggle,sette,te}) {
       <button className={`btn btn-${Mode==='light'?'success':'info'}`} onClick={logout}>Logout</button></>}
       <Link className='nav-link' to="/" onClick={func} ><button className={`btn btn-${Mode==='light'?'success':'info'}`}>News</button></Link>
 
-      <button className={`bg-dark mx-2 text-${Mode==='light'?'success':'info'}`} onClick={Toggle}><i class={`fa-solid fa-${Mode==='dark'?'sun':'moon'}`}></i></button>
+      <button className={`bg-dark mx text-${Mode==='light'?'success':'info'}`} style={{width:'30px'}}onClick={Toggle}><i class={`fa-solid fa-${Mode==='dark'?'sun':'moon'}`}></i></button>
     </div>
   </div>
 </nav>

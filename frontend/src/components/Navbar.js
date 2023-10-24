@@ -67,7 +67,7 @@ const NavBar = ({ search, onSearchChange,Mode,Toggle}) => {
         <button className={`btn btn-${Mode==='light'?'success':'info'}`}   type="submit"><Link className={`nav-link text-light`} to={`/${search}`} >Search</Link></button>
         </form>
          </div>
-                    <button className={`bg-dark mx-2 text-${Mode==='light'?'success':'info'}`} onClick={Toggle}><i class={`fa-solid fa-${Mode==='dark'?'sun':'moon'}`}></i></button> 
+                    <button className={`bg-dark mx-2 text-${Mode==='light'?'success':'info'}`} style={{width:'30px'}} onClick={Toggle}><i class={`fa-solid fa-${Mode==='dark'?'sun':'moon'}`}></i></button> 
           </div></nav>
         </div>
     )

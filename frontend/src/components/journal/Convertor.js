@@ -43,23 +43,23 @@ const echange=(e)=>{
   }
   return (
    <>
-    <div className='mx-5 my-3cd ba' style={{width:'50%'}}>
+    <div className='mx-5 my-4 cd ba' style={{width:'50%'}}>
        <form onSubmit={submit}>
   <div className="mb-3">
     <label htmlFor="name" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Currency-1</label>
-    <input type="text" className={`form-control text-${props.Mode==='light'?'dark':'light'}`} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}} id="C1" name="C1" value={cred.C1} onChange={echange}aria-describedby="emailHelp"/>
+    <input type="text" className={`form-control text-${props.Mode==='light'?'dark':'light'}`} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="C1" name="C1" value={cred.C1} onChange={echange}aria-describedby="emailHelp"/>
   </div>
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Currency-2</label>
-    <input type="text" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}} id="C2"name="C2" value={cred.C2} onChange={echange} aria-describedby="emailHelp"/>
+    <input type="text" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="C2"name="C2" value={cred.C2} onChange={echange} aria-describedby="emailHelp"/>
   </div>
   <div className="mb-3">
     <label htmlFor="exampleInputPassword1" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Conversion Amount</label>
-    <input type="number" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}} id="amount" name="amount" value={cred.amount} onChange={echange}/>
+    <input type="number" className={`form-control text-${props.Mode==='light'?'dark':'light'} `} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="amount" name="amount" value={cred.amount} onChange={echange}/>
   </div>
   <div className="mb-3">
     <label htmlFor="exampleInputPassword1" className={`form-label text-${props.Mode==='light'?'dark':'light'}`}>Result</label>
-    <input type="text" readOnly className={`form-control text-${props.Mode==='light'?'dark':'light'}`} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#5c6b79'}} id="result" name="result" value={cred.result} onChange={echange}/>
+    <input type="text" readOnly className={`form-control text-${props.Mode==='light'?'dark':'light'}`} style={{backgroundColor:props.Mode==='light'?'#aab8b6':'#383838',border:'none'}} id="result" name="result" value={cred.result} onChange={echange}/>
   </div>
   <div className="loadan">
   <button className={`btn btn-${props.Mode==='light'?'success':'info'}`} type='submit'>Convert</button>
