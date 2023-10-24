@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Spinner from '../Spinner';
-const Verify_otp = ({Mode,passwordchange,host,email}) => {
+const Verify_otp = ({Mode,passwordchange,host,email,setpasswordchange}) => {
   let navigate=useNavigate();
   const [loader,setloader]=useState(false)
   const [Otp,setOtp]=useState('')
@@ -42,11 +42,13 @@ const Verify_otp = ({Mode,passwordchange,host,email}) => {
              },
              body:JSON.stringify({otp:Otp,email:email})
          });
+         setpasswordchange(false)
         navigate('/journal/changepassword')
          if(!response.ok){
           setloader(false)
           const json=await response.json();
           alert(json.message);
+          setpasswordchange(false)
            localStorage.removeItem('token');
            navigate('/journal/verification');
          }
@@ -75,9 +77,9 @@ const Verify_otp = ({Mode,passwordchange,host,email}) => {
          {!loader?<Link to='/changepassword'> <button className={`btn btn-${Mode==='light'?'success':'info'} mb-3`} onClick={verify}>
               Verify
             </button></Link>:<Spinner />}
-            <p className={`resend  mb-0 text-${Mode==='light'?'dark':'light'}`}>
-              Didn't receive code? <Link to='/journal/forgotpassword' className={`mx-1 text-${Mode==='light'?'success':'info'}`} style={{textDecoration:'none',textAlign:'center'}}> Request again</Link>
-            </p>
+            {/* <p className={`resend  mb-0 text-${Mode==='light'?'dark':'light'}`}> */}
+              {/* Didn't receive code? <Link to='/journal/forgotpassword' className={`mx-1 text-${Mode==='light'?'success':'info'}`} style={{textDecoration:'none',textAlign:'center'}}> Request again</Link> */}
+            {/* </p> */}
           </div>
         </div>
       </div>

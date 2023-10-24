@@ -20,8 +20,8 @@ import Forgotpassword from './components/journal/Forgotpassword';
 import Changepassword from './components/journal/Changepassword';
 
 const App = ()=> {
-  //const host="http://localhost:4100/";
-    const host="https://finance-junction.onrender.com/"
+  const host="http://localhost:4100/";
+  //  const host="https://finance-junction.onrender.com/"
   const [passwordchange,setpasswordchange]=useState(false);
   const [email,setemail]=useState('');
   const pageSize = 5;
@@ -110,7 +110,7 @@ const App = ()=> {
          <Route exact path="/journal/about" element={<><div className="container my-5"><About Mode={mode} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/login" element={<><div className="container my-5"><Login Mode={mode} host={host} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/forgotpassword" element={<><div className="container my-5"><Forgotpassword Mode={mode} host={host} Toggle={toggle} setemail={setemail} setpasswordchange={setpasswordchange}/></div></>}></Route>
-         <Route exact path="/journal/verification" element={<><div className="container my-5"><Verify_otp Mode={mode} host={host}  passwordchange={passwordchange} email={email} Toggle={toggle}/></div></>}></Route>
+         <Route exact path="/journal/verification" element={<><div className="container my-5"><Verify_otp Mode={mode} host={host}  passwordchange={passwordchange} setpasswordchange={setpasswordchange} email={email} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/changepassword" element={<><div className="container my-5"><Changepassword Mode={mode} host={host} email={email} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/signup" element={<><div className="container my-5"><Signup Mode={mode} 
         host={host} Toggle={toggle}/></div></>}></Route>
