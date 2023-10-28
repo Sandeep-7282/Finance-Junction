@@ -33,6 +33,7 @@ const host="http://localhost:4100/";
       });
      const json=await response.json();
         setnotes(notes.concat(json)) 
+        getnotes();
        }
        const deletenote=async(id)=>{
         const response = await fetch(`${host}api/notes/delete/${id}`, {

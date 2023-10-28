@@ -21,7 +21,7 @@ import Changepassword from './components/journal/Changepassword';
 
 const App = ()=> {
   const host="http://localhost:4100/";
-  //  const host="https://finance-junction.onrender.com/"
+  //const host="https://finance-junction.onrender.com/"
   const [passwordchange,setpasswordchange]=useState(false);
   const [email,setemail]=useState('');
   const pageSize = 5;
