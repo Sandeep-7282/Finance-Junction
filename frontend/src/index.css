@@ -191,4 +191,11 @@ span{
 }
 .date{
   font-size: 12px;
+  font-weight: bolder;
+}
+.tag-text{
+  font-weight: bold;
+}
+.card-title{
+  font-weight: bolder;
 }
