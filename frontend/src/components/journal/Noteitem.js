@@ -6,9 +6,9 @@ const Noteitem = (props) => {
        const id_data=jwt_data.user.id
       const {note,updatenote}=props;
      const datefun =()=>{
-      console.log(note.date)
+     
       const date = new Date(note.date);
-      console.log(date)
+   
       const day=date.getDate();
       const month=date.getMonth()
       const year = date.getFullYear()

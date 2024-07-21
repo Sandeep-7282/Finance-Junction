@@ -20,8 +20,8 @@ import Forgotpassword from './components/journal/Forgotpassword';
 import Changepassword from './components/journal/Changepassword';
 
 const App = ()=> {
-  //const host="http://localhost:4100/";
-  const host="https://finance-junction.onrender.com/"
+  const host="http://localhost:4100/";
+  //const host="https://finance-junction.onrender.com/"
   const [passwordchange,setpasswordchange]=useState(false);
   const [email,setemail]=useState('');
   const pageSize = 5;
@@ -34,7 +34,7 @@ const App = ()=> {
   let location = useLocation();
   useEffect(() => {
     setroute(
-      location.pathname === '/journal' ||     location.pathname === '/journal/' ||
+      location.pathname === '/journal' || location.pathname === '/journal/' ||
       location.pathname === '/journal/about' ||
       location.pathname === '/journal/signup' ||
       location.pathname === '/journal/login'||
@@ -113,7 +113,7 @@ const App = ()=> {
          <Route exact path="/journal/verification" element={<><div className="container my-5"><Verify_otp Mode={mode} host={host}  passwordchange={passwordchange} setpasswordchange={setpasswordchange} email={email} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/changepassword" element={<><div className="container my-5"><Changepassword Mode={mode} host={host} email={email} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/signup" element={<><div className="container my-5"><Signup Mode={mode} 
-        host={host} Toggle={toggle}/></div></>}></Route>
+          host={host} Toggle={toggle}/></div></>}></Route>
          <Route exact path="/journal/editor"  element={<Text Mode={mode} Toggle={toggle}/>}></Route>
          <Route exact path="/journal/convertor"  element={<Convertor Mode={mode} Toggle={toggle}/>}></Route>
          <Route exact path="/journal/chatbot"  element={<Chatbot Mode={mode} Toggle={toggle}/>}></Route>

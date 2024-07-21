@@ -44,7 +44,8 @@ router.put('/update/:id',Fetchuser,async(req,res)=>{
           newnote.title=title;
    }
    if(description){
-      newnote.description=description}
+      newnote.description=description;
+   }
 if(tag){
    newnote.tag=tag;
 }

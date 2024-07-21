@@ -1,6 +1,5 @@
 import React, { useEffect,useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Notecontext from './context/Notecontext';
 import jwt_decode from "jwt-decode"
 const Signup = ({Mode,host}) => {
     const [cred,setcred]=useState({name:"",email:"",password:"",cpassword:""})
@@ -19,7 +18,7 @@ const Signup = ({Mode,host}) => {
     body:JSON.stringify({name:ggluser.name,email:ggluser.email})
 });
 const json=await response.json()
-  //console.log(json);
+  console.log(json);
   //console.log("user_id auth token:"+json.authtoken)
     localStorage.setItem('token',json.authtoken)
     navigate('/journal')
@@ -49,7 +48,7 @@ const submit=async(e)=>{
  if(cpass===pass){
  const {name,email,password}=cred;
  const response=await fetch(`${host}api/auth/createUser`,{
-    method:'POST',
+    method:'POST',    
     headers:{
       'Content-Type':'application/json'
     },
@@ -67,7 +66,6 @@ if(!response.ok){
     navigate('/journal/signup')
 }
  }
-
 else{
    alert('password and confirm password are mismatched')
 }
